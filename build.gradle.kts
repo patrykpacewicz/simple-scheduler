@@ -14,7 +14,7 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 graal {
     mainClass("org.springframework.boot.loader.JarLauncher")
-    outputName("simple-scheduler-$version")
+    outputName("simple-scheduler")
 }
 
 repositories {
