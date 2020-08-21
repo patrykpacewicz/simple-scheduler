@@ -1,4 +1,4 @@
-name: CI
+name: Release
 
 on:
   push:
@@ -44,7 +44,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           choco install visualstudio2017-workload-vctools
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+          "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
       
       - name: Cache Gradle packages
         uses: actions/cache@v2
