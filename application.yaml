@@ -1,0 +1,11 @@
+scheduler:
+  url-headers:
+   - Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+   - Accept-Encoding: gzip, deflate
+   - Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+   - User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
+
+  actions:
+    - { type: MSG, cron: "*/10 * * * * *",  value: "Every 10 sec test" }   # Every 10 seconds
+    - { type: MSG, cron: "45 54 13 21 8 *", value: "Date test" }           # at 13:54:45 on 21 in August
+    - { type: URL, cron: "*/10 * * * * *",  value: "http://google.com/" } # Every 1 minute
