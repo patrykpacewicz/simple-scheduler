@@ -40,7 +40,7 @@ jobs:
           java-version: 11
           
       - name: Set up Windows
-        if: runner.os == "Windows"
+        if: runner.os == 'Windows'
         run: choco install visualstudio2017-workload-vctools
       
       - name: Cache Gradle packages
