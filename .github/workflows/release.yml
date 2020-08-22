@@ -44,7 +44,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           choco install visualstudio2017-workload-vctools
-          "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+          type "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
       
       - name: Cache Gradle packages
         uses: actions/cache@v2
