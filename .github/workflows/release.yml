@@ -40,12 +40,6 @@ jobs:
         with:
           java-version: 11
           
-      - name: Set up Windows
-        if: runner.os == 'Windows'
-        run: |
-          choco install visualstudio2017-workload-vctools
-          type "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
-      
       - name: Cache Gradle packages
         uses: actions/cache@v2
         with:
@@ -53,7 +47,17 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle.kts') }}
           restore-keys: ${{ runner.os }}-gradle
       
+      - name: '[Windows] Set up' 
+        if: runner.os == 'Windows'
+        run: choco install visualstudio2017-workload-vctools
+      
+      - name: '[Windows] Build with Gradle'
+        if: runner.os == 'Windows'
+        run: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && gradle.bat build nativeImage'
+        shell: cmd
+
       - name: Build with Gradle
+        if: runner.os != 'Windows'
         run: ./gradlew build nativeImage
 
       - name: Upload Release Asset
