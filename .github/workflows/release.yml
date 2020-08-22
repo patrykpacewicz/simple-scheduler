@@ -48,11 +48,11 @@ jobs:
       
       - name: '[Windows] Set up' 
         if: runner.os == 'Windows'
-        run: choco install visualstudio2017-workload-vctools
+        run: choco install -y windows-sdk-7.1 visualstudio2017-workload-vctools
       
       - name: '[Windows] Build with Gradle'
         if: runner.os == 'Windows'
-        run: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && set GRADLE_OPTS="-Xmx512m" && gradlew.bat --no-daemon build nativeImage'
+        run: 'C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" && "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && gradlew.bat --no-daemon build nativeImage'
         shell: cmd
 
       - name: Build with Gradle
