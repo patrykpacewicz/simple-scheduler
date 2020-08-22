@@ -52,7 +52,7 @@ jobs:
       
       - name: '[Windows] Build with Gradle'
         if: runner.os == 'Windows'
-        run: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && gradlew.bat --no-daemon build nativeImage'
+        run: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && set GRADLE_OPTS="-Xmx512m" && gradlew.bat --no-daemon build nativeImage'
         shell: cmd
 
       - name: Build with Gradle
