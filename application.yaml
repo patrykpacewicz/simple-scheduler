@@ -6,6 +6,10 @@ scheduler:
    - User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36
 
   actions:
-    - { type: MSG, cron: "*/10 * * * * *",  value: "Every 10 sec test" }   # Every 10 seconds
-    - { type: MSG, cron: "45 54 13 21 8 *", value: "Date test" }           # at 13:54:45 on 21 in August
-    - { type: URL, cron: "*/10 * * * * *",  value: "http://google.com/" } # Every 1 minute
+    - { type: MSG, cron: "0 * * * * *",     value: "Every 1 min test" }    # Every 1 minute
+    - { type: URL, cron: "0 * * * * *",     value: "http://google.com/" }  # Every 1 minute
+    - { type: URL, cron: "0 45 8 24 8 *",   value: "http://google.com/" }  # at 08:45:00 on 24 in August
+    - { type: URL, cron: "59 59 8 24 8 *",  value: "http://google.com/" }  # at 08:59:59 on 24 in August
+    - { type: URL, cron: "0 0 9 24 8 *",    value: "http://google.com/" }  # at 09:00:00 on 24 in August
+    - { type: URL, cron: "1 0 9 24 8 *",    value: "http://google.com/" }  # at 09:00:01 on 24 in August
+    - { type: URL, cron: "2 0 9 24 8 *",    value: "http://google.com/" }  # at 09:00:02 on 24 in August
