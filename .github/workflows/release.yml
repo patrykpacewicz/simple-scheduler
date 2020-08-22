@@ -52,12 +52,12 @@ jobs:
       
       - name: '[Windows] Build with Gradle'
         if: runner.os == 'Windows'
-        run: 'C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" && "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && gradlew.bat --no-daemon build nativeImage'
+        run: 'C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" && "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && gradlew.bat build nativeImage'
         shell: cmd
 
       - name: Build with Gradle
         if: runner.os != 'Windows'
-        run: ./gradlew --no-daemon build nativeImage
+        run: ./gradlew build nativeImage
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
