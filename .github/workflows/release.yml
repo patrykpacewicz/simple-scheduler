@@ -48,7 +48,7 @@ jobs:
       
       - name: '[Windows] Set up' 
         if: runner.os == 'Windows'
-        run: choco install -y windows-sdk-7.1 visualstudio2017-workload-vctools
+        run: choco install -y visualstudio2017community --no-progress --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.ARM64 --add Microsoft.VisualStudio.Component.VC.CMake.Project"
       
       - name: '[Windows] Build with Gradle'
         if: runner.os == 'Windows'
