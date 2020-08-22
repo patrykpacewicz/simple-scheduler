@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("application")
     id("org.springframework.boot") version "2.3.3.RELEASE"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
     id("com.palantir.graal") version "0.7.1"
@@ -20,6 +21,9 @@ graal {
 repositories {
     mavenCentral()
 }
+
+tasks.getByName<Zip>("distZip").archiveName = "${project.name}.zip"
+
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
