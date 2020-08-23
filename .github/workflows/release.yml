@@ -50,6 +50,21 @@ jobs:
         if: runner.os == 'Windows'
         run: choco install -y visualstudio2017-workload-vctools --no-progress
       
+      - name: '[Windows] Variables' 
+        if: runner.os == 'Windows'
+        run: ' set && call "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && set'
+        shell: cmd
+      
+      - name: '[Windows] Variables2' 
+        if: runner.os == 'Windows'
+        run: ' set && "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && set'
+        shell: cmd
+      
+      - name: '[Windows] Variables 3' 
+        if: runner.os == 'Windows'
+        run: ' set '
+        shell: cmd
+      
       - name: '[Windows] Build with Gradle'
         if: runner.os == 'Windows'
         run: 'call "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvars64.bat" && gradlew.bat build nativeImage'
